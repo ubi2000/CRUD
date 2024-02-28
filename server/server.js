@@ -2,9 +2,11 @@ const express = require("express");
 require("dotenv").config();
 const dbConnect = require("./config/dbConnect");
 const noteController = require("./controllers/noteController");
+const cors=require("cors")
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 dbConnect();
 

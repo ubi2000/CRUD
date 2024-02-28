@@ -2,7 +2,7 @@ const Note = require("../models/note");
 
 const fetchNote = async (req, res) => {
   const note = await Note.find();
-  res.json({ note});
+  res.json({ note });
 };
 
 const singleNote = async (req, res) => {
@@ -12,8 +12,8 @@ const singleNote = async (req, res) => {
 };
 
 const createNote = async (req, res) => {
-  const {title,body} = req.body;
-    const note = await Note.create({
+  const { title, body } = req.body;
+  const note = await Note.create({
     title,
     body,
   });
@@ -22,10 +22,10 @@ const createNote = async (req, res) => {
 
 const updateNote = async (req, res) => {
   const noteId = req.params.id;
-  const {title,body} = req.body;
+  const { title, body } = req.body;
   await Note.findByIdAndUpdate(noteId, {
     title,
-    body
+    body,
   });
 
   const note = await Note.findById(noteId);
